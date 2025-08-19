@@ -1,3 +1,5 @@
+let size = 16;
+
 container = document.querySelector(".container");
 
 function getRandomRgbColor() {
@@ -22,18 +24,18 @@ function createGrid(n) {
     boxes.forEach((box) => {
     box.addEventListener("mouseenter", () => {
             box.style.backgroundColor = getRandomRgbColor();
+            box.style.opacity = (box.style.opacity) ? (parseFloat(box.style.opacity) + .1).toString() : "0";
         });
     });
 }
 
-createGrid(16);
+createGrid(size);
 
 
 eraseBtn = document.querySelector(".erase");
 eraseBtn.addEventListener("click", () => {
-    boxes.forEach((box) => {
-        box.style.backgroundColor = "white";
-    });
+    container.textContent = '';
+    createGrid(size);
 });
 
 resizeBtn = document.querySelector(".resize");
@@ -43,5 +45,6 @@ resizeBtn.addEventListener("click", () => {
         alert("invalid input");
     }
     container.textContent = '';
+    size = rows;
     createGrid(rows);
 })
