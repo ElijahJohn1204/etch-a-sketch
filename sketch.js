@@ -23,7 +23,7 @@ function createGrid(n) {
     boxes = document.querySelectorAll(".grid");
     boxes.forEach((box) => {
     box.addEventListener("mouseenter", () => {
-            box.style.backgroundColor = getRandomRgbColor();
+            box.style.backgroundColor = "black";
             box.style.opacity = (box.style.opacity) ? (parseFloat(box.style.opacity) + .1).toString() : "0";
         });
     });
